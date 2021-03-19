@@ -30,7 +30,7 @@ namespace AbilityScoreTester
              * returns - the int value read, or the default value if unable to parse
              */
 
-            static int Readint(int lastUsedValue, string prompt)
+            static int ReadInt(int lastUsedValue, string prompt)
             {
                 // Write the prompt followed by [default value]:
                 // Read the line from the input and use int. TryParse to attempt to parse it. 
