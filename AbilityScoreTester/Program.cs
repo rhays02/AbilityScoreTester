@@ -30,18 +30,49 @@ namespace AbilityScoreTester
              * returns - the int value read, or the default value if unable to parse
              */
 
-            static int Readint(int lastusedValue, string prompt)
+            static int Readint(int lastUsedValue, string prompt)
             {
                 // Write the prompt followed by [default value]:
                 // Read the line from the input and use int. TryParse to attempt to parse it. 
                 //if it can be parsed, write "  using value" + value to the console.
                 //otherwise write " using default value" + last used value to the console
+                Console.Write(prompt + " [" + lastUsedValue + "]: ");
+                string line = Console.ReadLine();
+                if (int.TryParse(line, out int value))
+                {
+                    Console.WriteLine(" using value " + value);
+                    return value;
+                }
+                else
+                {
+                    Console.WriteLine(" using default value " + lastUsedValue);
+                    return lastUsedValue;
+                }
+
+
             }
+
             /*
              * Add a ReadDouble method that is exactly like ReadInt, except that it uses double.TryParse instead of int.TryParse. 
              * The double.TryParse method works exactly link int.tryparse, except its out variable needs a double not an int. 
              */
+            static double ReadDouble(double lastUsedValue, string prompt)
+            {
+                Console.Write(prompt + " [" + lastUsedValue + "]: ");
+                string line = Console.ReadLine();
+                if (double.TryParse(line, out double value)) 
+                {
+                    Console.WriteLine(" using value " + value);
+                    return value;
+                }
+                else
+                {
+                    Console.WriteLine(" using default value " + lastUsedValue);
+                    return lastUsedValue;
+                }
 
+
+            }
         }
     }
 }
